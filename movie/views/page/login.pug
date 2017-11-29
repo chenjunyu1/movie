@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+    .container
+        .col-md-5
+            form(method='post',action='/user/login')
+                .modal-header 登录
+                .modal-body
+                    .form-group
+                        label(for='loginUsername') 用户名
+                        input#loginUsername.form-control(type='text' name='username')
+                    .form-group
+                        label(for='loginpsw') 密码
+                        input#loginpsw.form-control(type='password' name='psw')
+                .modal-footer
+                    .form-group
+                        button.btn.btn-default(type='submit') 登录

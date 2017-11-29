@@ -1,0 +1,81 @@
+.container
+    .row
+        .page-header.clearfix
+            h1 #{title}
+            .col-md-4
+                small movie 电影
+            .col-md-8
+                form(action='/user/search?p=0',method='get')
+                    .input-group.col-md-4.pull-right
+                        input.form-control(type='text' name='q' placeholder='电影搜索')
+                        span.input-group-btn
+                            button.btn-default.btn(type='submit') 搜索
+
+.navbar.navbar-default.navbar-fixed-bottom
+    .container
+        .navbar-header
+            a.navbar-brand(href='/') 首页
+        if !user
+            p.navbar-text.navbar-right
+                a.navbar-link(href='#',data-toggle='modal',data-target='#register') 注册
+                span &nbsp;|&nbsp;
+                a.navbar-link(href='#',data-toggle='modal',data-target='#login') 登录
+                span &nbsp;|&nbsp;
+                a.navbar-link(href='#',data-toggle='modal',data-target='#adminlogin') 管理员登录
+
+        else
+            p.navbar-text.navbar-right
+                span  欢迎您!#{user.username}
+                span &nbsp;|&nbsp;
+                a.navbar-link(href='/user/logout') 安全退出
+
+
+
+.modal.fade#register
+    .modal-dialog
+        .modal-content
+            form(method='post',action='/user/register')
+                .modal-header 注册
+                .modal-body
+                    .form-group
+                        label(for='registerUsername') 用户名
+                        input#registerUsername.form-control(type='text' name='username')
+                    .form-group
+                        label(for='registerpsw') 密码
+                        input#registerpsw.form-control(type='password' name='psw')
+                .modal-footer
+                    .form-group
+                        button.btn.btn-primary(type='button' data-dismiss='modal') 关闭
+                        button.btn.btn-default(type='submit') 注册
+.modal.fade#adminlogin
+    .modal-dialog
+        .modal-content
+            form(method='post',action='/admin/backer')
+                .modal-header 后台登录
+                .modal-body
+                    .form-group
+                        label(for='adminUsername') 用户名
+                        input#adminUsername.form-control(type='text' name='username')
+                    .form-group
+                        label(for='adminpsw') 密码
+                        input#adminpsw.form-control(type='password' name='psw')
+                .modal-footer
+                    .form-group
+                        button.btn.btn-primary(type='button' data-dismiss='modal') 关闭
+                        button.btn.btn-default(type='submit') 确认
+.modal.fade#login
+    .modal-dialog
+        .modal-content
+            form(method='post',action='/user/login')
+                .modal-header 登录
+                .modal-body
+                    .form-group
+                        label(for='loginUsername') 用户名
+                        input#loginUsername.form-control(type='text' name='username')
+                    .form-group
+                        label(for='loginpsw') 密码
+                        input#loginpsw.form-control(type='password' name='psw')
+                .modal-footer
+                    .form-group
+                        button.btn.btn-primary(type='button' data-dismiss='modal') 关闭
+                        button.btn.btn-default(type='submit') 登录

@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            form.form-horizontal(method='post' action='/admin/movie/new')
+                input(type='hidden' value=movie._id name='id')
+                .form-group
+                    label.col-sm-3.control-label(for='inputMovie') 电影名字
+                    .col-sm-9
+                        input#inputMovie.form-control(type='text' name='movieName' value=movie.movieName placeholder='请输入电影的名字')
+                .form-group
+                    label.col-sm-3.control-label(for='inputDoctor') 电影导演
+                    .col-sm-9
+                        input#inputDoctor.form-control(type='text' name='doctor' value=movie.doctor placeholder='请输入电影的导演')
+                .form-group
+                    label.col-sm-3.control-label(for='inputCountry') 国家
+                    .col-sm-9
+                        input#inputCountry.form-control(type='text' name='country' value=movie.country)
+                .form-group
+                    label.col-sm-3.control-label(for='inputLanguage') 语种
+                    .col-sm-9
+                        input#inputLanguage.form-control(type='text' name='language' value=movie.language)
+                .form-group
+                    label.col-sm-3.control-label(for='inputPoster') 海报地址
+                    .col-sm-9
+                        input#inputPoster.form-control(type='text' name='poster' value=movie.poster)
+                .form-group
+                    label.col-sm-3.control-label(for='inputFlash') 片源地址
+                    .col-sm-9
+                        input#inputFlash.form-control(type='text' name='flash' value=movie.flash)
+                .form-group
+                    label.col-sm-3.control-label(for='inputYear') 上映年份
+                    .col-sm-9
+                        input#inputYear.form-control(type='text' name='year' value=movie.year)
+                .form-group
+                    label.col-sm-3.control-label(for='inputSummary') 电影简介
+                    .col-sm-9
+                        input#inputSummary.form-control(type='text' name='summary' value=movie.summary)
+                .form-group
+                    .col-sm-10.col-sm-offset-2
+                        button.btn.btn-default(type='submit') #{active}
